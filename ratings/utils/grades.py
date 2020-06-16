@@ -4,11 +4,11 @@ from bs4 import BeautifulSoup
 def findInfo(courses):
     ret = []
     for course in courses.split(","):
-        code = course.replace(" ", "").upper()
-        if (not code.strip()):
-            ret.append("Error: Invalid code %s" % code)
+        if (not course.strip()):
+            ret.append("Error: Invalid code %s" % course)
             continue
-        url = 'https://critique.gatech.edu/course.php?id=' + code
+        code = course.strip().upper()
+        url = 'https://critique.gatech.edu/course.php?id=' + code.replace(" ", "%20")
 
         r = requests.get(url)
 
