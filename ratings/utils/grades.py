@@ -1,5 +1,4 @@
 import requests
-from bs4 import BeautifulSoup
 import re
 
 mean = lambda l : sum(l)/len(l)
